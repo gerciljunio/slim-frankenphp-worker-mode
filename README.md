@@ -3,7 +3,7 @@ Boilerplate minimalista para desenvolvimento de APIs em PHP com **Slim Framework
 
 ## 🚀 Tecnologias Utilizadas
 
-- **PHP 8+**
+- **PHP 8.3+**
 - **Slim Framework 4** — microframework para APIs rápidas e leves  
 - **FrankenPHP** — servidor PHP moderno com suporte a HTTP/3, TLS nativo e modo worker  
 - **Docker & Docker Compose** — ambiente isolado e reproduzível  
@@ -33,7 +33,7 @@ curl http://localhost:8081/ping
 {"message":"pong"}
 ```
 
-## Estrutura de diretórios e arquivos
+## 📂 Estrutura de diretórios e arquivos
 
 ```
 ├── Caddyfile
@@ -53,7 +53,7 @@ curl http://localhost:8081/ping
     └── routes.php
 ```
 
-## Descrição dos diretórios e pastas
+## 📂 Descrição dos diretórios e pastas
 **Caddyfile**  
 Configuração opcional do Caddy/FrankenPHP. Se ausente, o FrankenPHP usa um Caddyfile padrão; use este arquivo quando precisar customizar o servidor.
 
