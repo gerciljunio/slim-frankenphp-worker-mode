@@ -84,6 +84,11 @@ Funções auxiliares globais carregadas via autoload de `files` (ex.: `toRespons
 **src/routes.php**  
 Declaração das rotas do Slim (ex.: `GET /ping`). Mantém o `index.php` mais limpo e facilita evolução do roteamento.
 
+## 🧠 Observações
+- Este ambiente roda o FrankenPHP em modo worker, mantendo o runtime em memória entre requisições para máxima performance.
+- Durante o desenvolvimento, caso altere arquivos PHP e SE necessário, reinicie o container:   
+```docker compose restart app ```
+
 ## Autor
 Gercil Junio - Desenvolvedor Backend
 
