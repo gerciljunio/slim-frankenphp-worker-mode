@@ -27,33 +27,6 @@ $runner = static function () use ($app): void {
     $app->run();
 };
 
-
-
-$nbRequests = 0;
-while (true) {
-    try {
-        if (!\frankenphp_handle_request($handler)) {
-            break;
-        }
-
-        if (++$nbRequests > $requestsTreshold) {
-            break;
-        }
-
-    } catch (Throwable $e) {
-        $logger->error(
-            'Worker crashed: '
-                . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine()
-        );
-
-        // CRITICAL:
-        Helper::sendError();
-        break;
-    } finally {
-        gc_collect_cycles();
-    }
-}
-
 if (function_exists('frankenphp_handle_request')) {
 	$nbRequests = 0;
 	while (true) {
