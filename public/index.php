@@ -28,7 +28,24 @@ $runner = static function () use ($app): void {
 };
 
 if (function_exists('frankenphp_handle_request')) {
-    frankenphp_handle_request($runner);
+	$nbRequests = 0;
+	while (true) {
+		try {
+			if (!\frankenphp_handle_request($runner)) {
+				break;
+			}
+
+			if (++$nbRequests > 1000) {
+				break;
+			}
+
+		} catch (Throwable $e) {
+			// log error here
+			break;
+		} finally {
+			gc_collect_cycles();
+		}
+	}
 } else {
     $runner();
 }
